@@ -2,6 +2,11 @@
 #'
 #' @title Determine a script's filename from within the script itself
 #'
+#' @description
+#' A small set of functions wrapping up the call stack and command line
+#' inspection needed to determine a running script's filename from within the
+#' script itself.
+#'
 #' @details
 #' `current_filename()` returns the result of `current_source_filename()` if
 #' not NULL, otherwise the result of `current_cli_filename()`, which might be

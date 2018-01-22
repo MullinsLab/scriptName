@@ -1,5 +1,11 @@
 Determine a script's filename from within the script itself
 
+Description:
+
+     A small set of functions wrapping up the call stack and command
+     line inspection needed to determine a running script's filename
+     from within the script itself.
+
 Usage:
 
      current_filename()

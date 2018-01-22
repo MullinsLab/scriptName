@@ -1,9 +1,11 @@
 Package: scriptName
 Title: Determine a script's filename from within the script itself
-Version: 0.1
-Authors@R: person("Thomas", "Sibley",
-                  email = "trsibley@uw.edu",
-                  role = c("aut", "cre"))
+Description: A small set of functions wrapping up the call stack and command
+  line inspection needed to determine a running script's filename from
+  within the script itself.
+Version: 1.0.0
+Authors@R: person("Thomas", "Sibley", email = "trsibley@uw.edu", role = c("aut", "cre"))
+License: MIT + file LICENSE
 Imports: rlang (>= 0.1.0),
          purrr (>= 0.2.3)
 RoxygenNote: 6.0.1

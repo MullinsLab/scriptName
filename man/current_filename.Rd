@@ -17,6 +17,11 @@ A character vector of length 1 if a script name can be found, otherwise
 NULL.  No manipulation is done to the filename, so it may be relative or
 absolute.
 }
+\description{
+A small set of functions wrapping up the call stack and command line
+inspection needed to determine a running script's filename from within the
+script itself.
+}
 \details{
 \code{current_filename()} returns the result of \code{current_source_filename()} if
 not NULL, otherwise the result of \code{current_cli_filename()}, which might be

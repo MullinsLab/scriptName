@@ -1,11 +1,21 @@
-.PHONY: doc build install test
+PACKAGE := $(shell perl -aF: -ne 'print, exit if s/^Package:\s+//' DESCRIPTION)
+VERSION := $(shell perl -aF: -ne 'print, exit if s/^Version:\s+//' DESCRIPTION)
+BUILD   := $(PACKAGE)_$(VERSION).tar.gz
 
-# Regenerate NAMESPACE and man/*.Rd using Roxygen via devtools
+.PHONY: doc build install test $(BUILD)
+
+default: doc README
+
 doc:
 	Rscript -e 'devtools::document()'
 
-build:
+build: $(BUILD)
+
+$(BUILD): doc
 	R CMD build .
+
+check: $(BUILD)
+	R CMD CHECK $<
 
 install:
 	R CMD install .

@@ -1,5 +1,5 @@
-/.Rcheck
-/..Rcheck
+/*.Rcheck
+/*.tar.gz
 /.RData
 /.Rhistory
 /.Ruserdata
