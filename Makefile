@@ -16,3 +16,6 @@ test:
 manual: manual.pdf
 manual.pdf: doc
 	R CMD Rd2pdf --batch --output=$@ --force .
+
+README: man/current_filename.Rd doc
+	R CMD Rd2txt $< > $@
