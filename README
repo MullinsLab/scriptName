@@ -1,6 +1,6 @@
-_D_e_t_e_r_m_i_n_e _a _s_c_r_i_p_t'_s _f_i_l_e_n_a_m_e _f_r_o_m _w_i_t_h_i_n _t_h_e _s_c_r_i_p_t _i_t_s_e_l_f
+Determine a script's filename from within the script itself
 
-_U_s_a_g_e:
+Usage:
 
      current_filename()
      
@@ -8,7 +8,7 @@ _U_s_a_g_e:
      
      current_cli_filename()
      
-_D_e_t_a_i_l_s:
+Details:
 
      ‘current_filename()’ returns the result of
      ‘current_source_filename()’ if not NULL, otherwise the result of
@@ -24,7 +24,7 @@ _D_e_t_a_i_l_s:
      line invocation of R or Rscript.  This may or may not be the
      caller's file if there's been an intervening ‘source’.
 
-_V_a_l_u_e:
+Value:
 
      A character vector of length 1 if a script name can be found,
      otherwise NULL.  No manipulation is done to the filename, so it
