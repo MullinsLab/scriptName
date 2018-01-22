@@ -1,0 +1,1 @@
+cat(current_filename())

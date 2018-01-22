@@ -46,8 +46,9 @@ current_cli_filename <- function() {
     #   R --slave --no-save --no-restore -f foo.R
     #   Rscript foo.R becomes R … --file=foo.R
     #
-    # The last provided -f/--file argument wins, so we search in reverse since
-    # it's easier to grab the first item.
+    # The last provided -f/--file argument wins (although all named files must
+    # _exist_, only the last is executed), so we search in reverse since it's
+    # easier to grab the first item.
     args <- rev(commandArgs(F))
 
     file_index <- grep("^(--file=|-f$)", args)[1]
