@@ -1,2 +1,2 @@
 devtools::load_all("../../", quiet = T)
-cat(current_filename())
+str(current_filename())

@@ -1,34 +1,44 @@
+library(rlang)
+
 context("source()")
-test_that("source()", {
-    expect_output(source("source.current_filename.R"),        "source.current_filename.R")
-    expect_output(source("source.current_source_filename.R"), "source.current_source_filename.R")
-    expect_silent(source("source.current_cli_filename.R"))
+test_that("functions work under source()", {
+    source_file <- function(file)
+       system2("Rscript", c("--vanilla", "-e", shQuote(paste0('source("', file, '")'))), stdout = T)
+
+    expect_identical(source_file("current_filename.R"),         ' chr "current_filename.R"')
+    expect_identical(source_file("current_source_filename.R"),  ' chr "current_source_filename.R"')
+    expect_identical(source_file("current_cli_filename.R"),     ' NULL')
 })
 
 
 context("R --file")
-test_that("R --file", {
-    args = c("--slave", "--no-save", "--no-restore", "--file=red-herring.R")
+test_that("functions work under R --file", {
+    run_r <- function(file)
+       system2("R", c("--slave", "--vanilla", "--file=red-herring.R", paste0("--file=", file)), stdout = T)
 
-    expect_identical(system2("R", c(args, "--file=exec.current_filename.R"),        stdout = T), "exec.current_filename.R")
-    expect_identical(system2("R", c(args, "--file=exec.current_source_filename.R"), stdout = T), character(0))
-    expect_identical(system2("R", c(args, "--file=exec.current_cli_filename.R"),    stdout = T), "exec.current_cli_filename.R")
+    expect_identical(run_r("current_filename.R"),         ' chr "current_filename.R"')
+    expect_identical(run_r("current_source_filename.R"),  ' NULL')
+    expect_identical(run_r("current_cli_filename.R"),     ' chr "current_cli_filename.R"')
 })
 
 
 context("R -f")
-test_that("R -f", {
-    args = c("--slave", "--no-save", "--no-restore", "-f", "red-herring.R")
+test_that("functions work under R -f", {
+    run_r <- function(file)
+       system2("R", c("--slave", "--vanilla", "-f", "red-herring.R", "-f", file), stdout = T)
 
-    expect_identical(system2("R", c(args, "-f", "exec.current_filename.R"),        stdout = T), "exec.current_filename.R")
-    expect_identical(system2("R", c(args, "-f", "exec.current_source_filename.R"), stdout = T), character(0))
-    expect_identical(system2("R", c(args, "-f", "exec.current_cli_filename.R"),    stdout = T), "exec.current_cli_filename.R")
+    expect_identical(run_r("current_filename.R"),         ' chr "current_filename.R"')
+    expect_identical(run_r("current_source_filename.R"),  ' NULL')
+    expect_identical(run_r("current_cli_filename.R"),     ' chr "current_cli_filename.R"')
 })
 
 
 context("Rscript")
-test_that("Rscript", {
-    expect_identical(system2("Rscript", "exec.current_filename.R",        stdout = T), "exec.current_filename.R")
-    expect_identical(system2("Rscript", "exec.current_source_filename.R", stdout = T), character(0))
-    expect_identical(system2("Rscript", "exec.current_cli_filename.R",    stdout = T), "exec.current_cli_filename.R")
+test_that("functions work under Rscript", {
+    run_rscript <- function(file)
+       system2("Rscript", c("--vanilla", file), stdout = T)
+
+    expect_identical(run_rscript("current_filename.R"),         ' chr "current_filename.R"')
+    expect_identical(run_rscript("current_source_filename.R"),  ' NULL')
+    expect_identical(run_rscript("current_cli_filename.R"),     ' chr "current_cli_filename.R"')
 })
