@@ -1,6 +1,3 @@
-devtools::use_testthat()
-
-
 context("source()")
 test_that("source()", {
     expect_output(source("source.current_filename.R"),        "source.current_filename.R")
