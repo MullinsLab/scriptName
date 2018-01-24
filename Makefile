@@ -15,8 +15,10 @@ $(BUILD): doc
 	R CMD build .
 
 check: $(BUILD)
-	R CMD CHECK $<
 	R CMD CHECK --as-cran $<
+
+check-cran: $(BUILD)
+	R --interactive --no-save --args $< <<<'rhub::check_for_cran(commandArgs(T)[1])'
 
 install:
 	R CMD install .
