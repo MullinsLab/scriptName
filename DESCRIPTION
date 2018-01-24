@@ -1,5 +1,5 @@
 Package: scriptName
-Title: Determine a script's filename from within the script itself
+Title: Determine a Script's Filename from Within the Script Itself
 Description: A small set of functions wrapping up the call stack and command
   line inspection needed to determine a running script's filename from
   within the script itself.

@@ -16,6 +16,7 @@ $(BUILD): doc
 
 check: $(BUILD)
 	R CMD CHECK $<
+	R CMD CHECK --as-cran $<
 
 install:
 	R CMD install .
