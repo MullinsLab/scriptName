@@ -1,2 +1,6 @@
-devtools::load_all("../../", quiet = T)
+if (file.exists("../../DESCRIPTION")) {
+  devtools::load_all("../../", quiet = T)
+} else {
+  library("scriptName")
+}
 str(current_source_filename())
