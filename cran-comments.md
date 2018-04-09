@@ -10,8 +10,8 @@ This is a resubmission.  In this version I have:
 * Local macOS 10.13.3 install, R 3.4.4
 * r-hub
     - Ubuntu Linux 16.04 LTS, R-release (3.4.4), GCC
-    - Fedora Linux, R-devel (2018-03-25 r74454), clang, gfortran
-    - Windows Server 2008 R2 SP1, R-devel (2018-03-27 r74478), 32/64 bit
+    - Fedora Linux, R-devel (2018-04-07 r74551), clang, gfortran
+    - Windows Server 2008 R2 SP1, R-devel (2018-04-07 r74551), 32/64 bit
 
 
 # R CMD check results
