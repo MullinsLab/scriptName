@@ -1,3 +1,10 @@
+# Resubmission
+
+This is a resubmission.  In this version I have:
+
+* Added a small executable example at the request of Swetlana Herbrandt
+
+
 # Test environments
 
 * Local macOS 10.13.3 install, R 3.4.4

@@ -36,3 +36,10 @@ sourced script, this is the filename of the script itself.
 invocation of R or Rscript.  This may or may not be the caller's file if
 there's been an intervening \code{\link[base]{source}}.
 }
+\examples{
+# Put this in example.R and try running source("example.R")
+# and `Rscript example.R`
+filename <- current_filename()
+print(filename)
+
+}

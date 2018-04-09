@@ -26,6 +26,12 @@
 #' NULL.  No manipulation is done to the filename, so it may be relative or
 #' absolute.
 #'
+#' @examples
+#' # Put this in example.R and try running source("example.R")
+#' # and `Rscript example.R`
+#' filename <- current_filename()
+#' print(filename)
+#'
 #' @export
 #'
 current_filename <- function()
