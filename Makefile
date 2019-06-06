@@ -15,7 +15,7 @@ $(BUILD): doc
 	R CMD build .
 
 check: $(BUILD)
-	R CMD CHECK --as-cran $<
+	R CMD check --as-cran $<
 
 check-cran: $(BUILD)
 	R --interactive --no-save --args $< <<<'rhub::check_for_cran(commandArgs(T)[1])'

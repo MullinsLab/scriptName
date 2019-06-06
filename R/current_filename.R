@@ -45,8 +45,12 @@ current_filename <- function()
 current_source_filename <- function()
     purrr::pluck( closest_source_frame(), "env", "filename" )
 
-closest_source_frame <- function()
-    purrr::detect( rlang::ctxt_stack(), ~ .$fn_name == "source" )
+closest_source_frame <- function() {
+    purrr::detect( rlang::ctxt_stack(), function(x) {
+      if(is.null(x$fn_name)) return(FALSE)
+      x$fn_name == "source"
+    })
+}
 
 
 #' @rdname current_filename

@@ -3,7 +3,7 @@ Title: Determine a Script's Filename from Within the Script Itself
 Description: A small set of functions wrapping up the call stack and command
   line inspection needed to determine a running script's filename from
   within the script itself.
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: c(
     person("Thomas", "Sibley", email = "trsibley@uw.edu", role = c("aut", "cre")),
     person("University of Washington", role = c("cph")) )
@@ -13,6 +13,6 @@ BugReports: https://github.com/MullinsLab/scriptName/issues
 Imports: rlang (>= 0.1.0),
          purrr (>= 0.2.3)
 Suggests: testthat, devtools
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
