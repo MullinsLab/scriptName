@@ -18,7 +18,7 @@ check: $(BUILD)
 	R CMD check --as-cran $<
 
 check-cran: $(BUILD)
-	R --interactive --no-save --args $< <<<'rhub::check_for_cran(commandArgs(T)[1], email="traversc@gmail.com")'
+	R --interactive --no-save --args $< <<<'rhub::check_for_cran(commandArgs(T)[1])'
 
 install:
 	R CMD install .
