@@ -45,12 +45,22 @@ current_filename <- function()
 current_source_filename <- function()
     purrr::pluck( closest_source_frame(), "env", "filename" )
 
-closest_source_frame <- function() {
-    purrr::detect( rlang::ctxt_stack(), function(x) {
-      if(is.null(x$fn_name)) return(FALSE)
-      x$fn_name == "source"
-    })
+get_stack <- function (n = NULL, trim = 0) {
+  stack <- sys.calls()
+  stack <- rev(stack[-length(stack)])
+  env <- sys.frames()
+  env <- rev(env[-length(env)])
+  if(length(stack) == 0) return(NULL)
+  purrr::transpose(list(fn_name = lapply(stack, rlang::call_name), env = env) )
 }
+
+closest_source_frame <- function() {
+  purrr::detect( get_stack(), function(x) {
+    if(is.null(x$fn_name)) return(FALSE)
+    x$fn_name == "source"
+  })
+}
+
 
 
 #' @rdname current_filename
