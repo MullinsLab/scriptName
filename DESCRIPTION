@@ -6,7 +6,8 @@ Description: A small set of functions wrapping up the call stack and command
 Version: 1.0.1
 Authors@R: c(
     person("Thomas", "Sibley", email = "trsibley@uw.edu", role = c("aut", "cre")),
-    person("University of Washington", role = c("cph")) )
+    person("University of Washington", role = c("cph")),
+    person("Travers", "Ching", email = "traversc@gmail.com", role = c("ctb")) )
 License: MIT + file LICENSE
 URL: https://github.com/MullinsLab/scriptName
 BugReports: https://github.com/MullinsLab/scriptName/issues
